@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PruebaPractica.MVVM.Views.MainPageView"
+             xmlns:convert="clr-namespace:PruebaPractica.MVVM.Convert"
+             Title="MainPageView">
+
+    <ContentPage.Resources>
+        <convert:ConvertEntregadoONo x:Key="EntregadoONo"/>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="2*,*,*,*,*">
+        <Grid BackgroundColor="GreenYellow" Grid.Row="0" ColumnDefinitions="*,*,*">
+            <Button Command="{Binding DisplayAlert}" CommandParameter="{Binding NumeroTelefono}" StyleClass="ButtonInit" HeightRequest="30" WidthRequest="60" VerticalOptions="Start" HorizontalOptions="Start" Grid.Column="0" Text="Llamar"/>
+            <Label Grid.Column="1" Text="Foto motero" TextColor="Black"  VerticalOptions="Center" HorizontalOptions="Center" />
+            <Button Command="{Binding DisplayAlert}" CommandParameter="{Binding CorreoElectronico}" StyleClass="ButtonInit" HeightRequest="30" WidthRequest="70" VerticalOptions="Start" HorizontalOptions="End" Grid.Column="2" Text="Ayuda"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <HorizontalStackLayout VerticalOptions="Center" HorizontalOptions="End">
+                <Label Text="Entregado" />
+                <Switch IsToggled="{Binding isEntregado}" />
+            </HorizontalStackLayout>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <VerticalStackLayout HorizontalOptions="Start">
+                <Label Text="{Binding isEntregado, Converter={StaticResource EntregadoONo}}" />
+                <Label Text="Delisc......"/>
+            </VerticalStackLayout>
+        </Grid>
+
+        <Grid Grid.Row="3" ColumnDefinitions="*,12*" VerticalOptions="Center">
+            <Label Grid.Column="0" Text="Foto repartidor"/>
+            <VerticalStackLayout Grid.Column="1" >
+                <Label Text="Entregador por : Juan"/>
+                <Button Command="{Binding DisplayAlert}" CommandParameter="{Binding NumeroTelefono}" StyleClass="ButtonInit" HeightRequest="30" WidthRequest="60" VerticalOptions="End" HorizontalOptions="End" Grid.Column="0" Text="Llamar"/>
+                <!--<Entry Text="LLama si no puedes encontrar tu pedido"/>-->
+                <Label Text="LLama si no puedes encontrar tu pedido" Opacity="0.4" TextDecorations="Underline"/>
+            </VerticalStackLayout>
+        </Grid>
+
+        <Grid Grid.Row="4" VerticalOptions="Center" ColumnDefinitions="4*,*">
+            <VerticalStackLayout Grid.Column="0">
+                <Label HorizontalOptions="Center" Text="{Binding Valoracion}"/>
+                <Slider x:Name="Slider" Value="{Binding Valoracion}" Minimum="1" Maximum="10" />
+            </VerticalStackLayout>
+
+            <Button Command="{Binding DisplayAlertValoracion}" CommandParameter="{Binding Valoracion}" HeightRequest="40" Grid.Column="1" Text="Calificar pedido"/>
+        </Grid>
+    </Grid>
+</ContentPage>

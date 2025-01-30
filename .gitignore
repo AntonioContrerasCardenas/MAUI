@@ -1,0 +1,56 @@
+# Archivos de compilación
+bin/
+obj/
+
+# Archivos de usuario y configuración local
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.vs/
+
+# Paquetes y dependencias generadas
+packages/
+node_modules/
+*.nupkg
+*.lock.json
+
+# Archivos de depuración y logs
+*.log
+*.tlog
+*.pdb
+
+# Archivos generados por Visual Studio y Rider
+.project/
+*.csproj.user
+*.sln.iml
+*.userprefs
+*.sln.metaproj
+
+# Archivos de configuración específica de MAUI
+appsettings.json
+appsettings.Development.json
+
+# Caché de Xamarin/MAUI
+**/obj/Debug/
+**/obj/Release/
+**/bin/Debug/
+**/bin/Release/
+
+# Archivos generados de configuración y dependencias
+project.lock.json
+project.assets.json
+project.fragment.lock.json
+
+# Configuración específica de Android
+android/.gradle/
+android/.idea/
+android/local.properties
+android/app/google-services.json
+
+# Configuración específica de iOS
+ios/Pods/
+ios/build/
+ios/DerivedData/

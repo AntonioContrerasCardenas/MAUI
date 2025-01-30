@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.FlyotPageDemo"
+             Title="FlyotPageDemo">
+    <VerticalStackLayout>
+        <Label 
+            Text="Welcome to .NET MAUI!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>-->
+
+<FlyoutPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="MauiApp2.FlyotPageDemo"
+            Title="FlyotPageDemo">
+
+    <!-- El menú flyout (panel lateral) -->
+    <FlyoutPage.Flyout>
+        <ContentPage Title="Menu" BackgroundColor="LightGray">
+            <VerticalStackLayout Padding="10">
+                <Button Text="Home" />
+                <Button Text="Settings" />
+            </VerticalStackLayout>
+        </ContentPage>
+    </FlyoutPage.Flyout>
+
+</FlyoutPage>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.ContentPageDemo"
+             Title="ContentPageDemo"
+             x:Name="MainPage">
+
+    <Frame WidthRequest="300" HeightRequest="400" CornerRadius="10" BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center">
+        <VerticalStackLayout VerticalOptions="Center">
+            <Label Text="Color Picker" TextColor="Black" HorizontalOptions="Center" FontSize="20"/>
+
+            <Label Text="Red Value" TextColor="Black" HorizontalOptions="Start"/>
+            <Slider x:Name="RedSlider" Maximum="255" ValueChanged="onValueSliderChanged" />
+
+            <Label Text="Blue Value" TextColor="Black" HorizontalOptions="Start"/>
+            <Slider x:Name="BlueSlider" Maximum="255" ValueChanged="onValueSliderChanged" />
+
+            <Label Text="Green Value" TextColor="Black" HorizontalOptions="Start"/>
+            <Slider x:Name="GreenSlider" Maximum="255" ValueChanged="onValueSliderChanged" />
+
+            <Frame Margin="0,20,0,20" BackgroundColor="White" CornerRadius="10" BorderColor="WhiteSmoke" >
+                <HorizontalStackLayout>
+                    <Label x:Name="HexLabel" Text="HEX Value: #000000" TextColor="Black" VerticalOptions="Center"/>
+
+                    <ImageButton Source="copy_image.png"
+                                 WidthRequest="30"
+                                 HeightRequest="30"
+                                 Clicked="ImageButton_Clicked_1"
+                                 BackgroundColor="Transparent"
+                                 BorderColor="Transparent"
+                                 VerticalOptions="Center" />
+
+                </HorizontalStackLayout>
+            </Frame>
+
+            <Button Text="Generate Random Color"
+                    BackgroundColor="Red"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                            TextColor="White"
+                        x:Name="RandomBtn"
+                        Clicked="RandomBtn_Clicked"/>
+        </VerticalStackLayout>
+    </Frame>
+
+</ContentPage>

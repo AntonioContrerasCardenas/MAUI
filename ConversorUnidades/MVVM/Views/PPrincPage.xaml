@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ConversorUnidades.MVVM.Views.PPrincPage"
+             Title="PPrincPage">
+    <Grid RowDefinitions="*,6*">
+        <Grid Grid.Row="0">
+            <Label Text="-Conversor de Unidades-"
+                   TextColor="White"
+                   FontSize="24"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center" />
+        </Grid>
+
+        <Grid Grid.Row="1" BindingContext="Information" RowDefinitions="*,*,*" ColumnDefinitions="*,*,*">
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"  />
+                </Grid.GestureRecognizers>
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="&#xF0A0;" 
+                           FontFamily="Icons"
+                           FontSize="32"
+                           HorizontalOptions="Center" />
+                    <Label Text="Informacion" FontSize="16" />
+                </VerticalStackLayout>
+            </Grid>
+
+            <Grid Grid.Row="0" BindingContext="Volume" Grid.Column="1">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Grid.GestureRecognizers>
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="&#xF1B2;" 
+               FontFamily="Icons"
+               FontSize="32"
+               HorizontalOptions="Center" />
+                    <Label Text="Volumen" FontSize="16" />
+                </VerticalStackLayout>
+            </Grid>
+
+            <Grid Grid.Row="0" BindingContext="Length" Grid.Column="2">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Grid.GestureRecognizers>
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="&#xF044;" 
+                       FontFamily="Icons"
+                       FontSize="32"
+                       HorizontalOptions="Center" />
+                    <Label Text="Altura" FontSize="16" />
+                </VerticalStackLayout>
+            </Grid>
+
+            <Grid Grid.Row="1" BindingContext="Mass" Grid.Column="0">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Grid.GestureRecognizers>
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="&#xE835;" 
+           FontFamily="Icons"
+           FontSize="32"
+           HorizontalOptions="Center" />
+                    <Label Text="Masa" FontSize="16" />
+                </VerticalStackLayout>
+            </Grid>
+
+            <Grid Grid.Row="1" BindingContext="Temperature" Grid.Column="1">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Grid.GestureRecognizers>
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="&#xE801;" 
+           FontFamily="Icons"
+           FontSize="32"
+           HorizontalOptions="Center" />
+                    <Label Text="Temperatura" FontSize="16" />
+                </VerticalStackLayout>
+            </Grid>
+
+            <Grid Grid.Row="1" BindingContext="Energy" Grid.Column="2">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Grid.GestureRecognizers>
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="&#xE802;" 
+           FontFamily="Icons"
+           FontSize="32"
+           HorizontalOptions="Center" />
+                    <Label Text="Energia" FontSize="16" />
+                </VerticalStackLayout>
+            </Grid>
+
+            <Grid Grid.Row="2" BindingContext="Area" Grid.Column="0">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Grid.GestureRecognizers>
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="&#xE803;" 
+           FontFamily="Icons"
+           FontSize="32"
+           HorizontalOptions="Center" />
+                    <Label Text="Area" FontSize="16" />
+                </VerticalStackLayout>
+            </Grid>
+
+            <Grid Grid.Row="2" BindingContext="Speed" Grid.Column="1">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Grid.GestureRecognizers>
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="&#xE82A;" 
+           FontFamily="Icons"
+           FontSize="32"
+           HorizontalOptions="Center" />
+                    <Label Text="Velocidad" FontSize="16" />
+                </VerticalStackLayout>
+            </Grid>
+
+            <Grid Grid.Row="2" BindingContext="Duration" Grid.Column="2">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Grid.GestureRecognizers>
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="&#xE800;" 
+           FontFamily="Icons"
+           FontSize="32"
+           HorizontalOptions="Center" />
+                    <Label Text="Duracion" FontSize="16" />
+                </VerticalStackLayout>
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentPage>

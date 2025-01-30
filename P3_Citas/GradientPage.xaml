@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="P3_Citas.GradientPage"
+             Title="GradientPage">
+    <!--<ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop x:Name="YellowGradient" Color="Yellow" Offset="0.0" />
+            <GradientStop  x:Name="RedGradient" Color="Red" Offset="0.25" />
+            <GradientStop  x:Name="BlueGradient" Color="Blue" Offset="0.75" />
+            <GradientStop  x:Name="GreenGradient" Color="LimeGreen" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>-->
+
+    <Grid RowDefinitions="5*,*">
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop x:Name="YellowGradient" Color="Yellow" Offset="0.0" />
+                <GradientStop x:Name="RedGradient" Color="Red" Offset="0.25" />
+                <GradientStop x:Name="BlueGradient" Color="Blue" Offset="0.75" />
+                <GradientStop x:Name="GreenGradient" Color="LimeGreen" Offset="1.0" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid Grid.Row="0">
+            <Label x:Name="LabelCitas" Text="Hola Mundo"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" 
+               HorizontalTextAlignment="Center"
+               FontSize="50"
+               TextColor="White" FontFamily="Bisson"/>
+        </Grid>
+        <Grid Grid.Row="1" Margin="20">
+            <Button x:Name="BtnChangeCita" Clicked="BtnChangeCita_Clicked" Text="Get New Quote" Opacity="0.4" />
+        </Grid>
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ConversorUnidades.MVVM.Views.ConversionView"
+             Title="{Binding QuantityName}">
+    <!--<VerticalStackLayout>
+
+        <Label Text="{Binding QuantityName}" FontSize="24" HorizontalOptions="Center" />
+        <Picker ItemsSource="{Binding FromMedidas}" SelectedItem="{Binding SelectedMedidasFrom}"  x:Name="PickerFrom" Title="Convertir de" />
+        <Picker ItemsSource="{Binding ToMedidas}" SelectedItem="{Binding SelectedMedidasTo}" x:Name="PickerTo" Title="Convertir a" />
+        <Entry Placeholder="Introduce el valor" Text="{Binding ValorAConvertir}" Keyboard="Numeric" />
+        <Button Text="Convertir" Clicked="Button_Clicked" />
+        <Label Text="{Binding Resultado}" FontSize="20" HorizontalOptions="Center" />
+
+    </VerticalStackLayout>-->
+
+    <Grid RowDefinitions="*,*">
+        <Grid Grid.Row="0" BackgroundColor="#800080">
+            <VerticalStackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                <Entry ReturnCommand="{Binding ChangeCommand}" TextChanged="Entry_TextChanged" Keyboard="Numeric" Text="{Binding ValorAConvertir}" TextColor="White" FontSize="100" HorizontalTextAlignment="Center" />
+                <Picker TextColor="White" ItemsSource="{Binding FromMedidas}" SelectedIndexChanged="PickerTo_SelectedIndexChanged" SelectedItem="{Binding SelectedMedidasFrom}" x:Name="PickerFrom" Title="Convertir de" />
+            </VerticalStackLayout>
+        </Grid>
+        <Grid Grid.Row="1" BackgroundColor="#5c0a5c">
+            <VerticalStackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                <Label Text="{Binding Resultado, StringFormat='{0:F3}'}" TextColor="White" FontSize="100" HorizontalTextAlignment="Center" />
+                <Picker TextColor="White" ItemsSource="{Binding ToMedidas}" SelectedIndexChanged="PickerTo_SelectedIndexChanged" SelectedItem="{Binding SelectedMedidasTo}" x:Name="PickerTo" Title="Convertir a" />
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

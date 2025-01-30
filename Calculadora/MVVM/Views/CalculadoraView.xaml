@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Calculadora.MVVM.Views.CalculadoraView"
+             Title="CalculadoraView">
+    <Grid StyleClass="Container"  RowDefinitions="3*, 5*">
+        <VerticalStackLayout Grid.Row="0">
+            <Label StyleClass="LabelTXT, LabelFormula" Text="{Binding Formula}"/>
+            <Label StyleClass="LabelTXT, LabelResult" Text="{Binding Result}" />
+        </VerticalStackLayout>
+
+        <Grid Grid.Row="1">
+            <BoxView />
+            <Grid RowDefinitions="*,*,*,*,*" ColumnDefinitions="*,*,*,*" ColumnSpacing="25" RowSpacing="25" Padding="25">
+                <Button Text="AC" Command="{Binding ResetCommand}" Style="{StaticResource YellowBTN}" Grid.Row="0" Grid.Column="0"/>
+                <Button Text="DEL" Command="{Binding DeleteLastCommand}"  Style="{StaticResource YellowBTN}" Grid.Row="0" Grid.Column="1"/>
+                <Button Text="%" Style="{StaticResource YellowBTN}" Command="{Binding AddOperation}" CommandParameter=" % " Grid.Row="0" Grid.Column="2"/>
+                <Button Text="/" Style="{StaticResource RedBTN}" Command="{Binding AddOperation}" CommandParameter=" / " Grid.Row="0" Grid.Column="3"/>
+
+
+                <Button Text="7" Command="{Binding AddOperation}" CommandParameter="7" Grid.Row="1" Grid.Column="0"/>
+                <Button Text="8" Command="{Binding AddOperation}" CommandParameter="8" Grid.Row="1" Grid.Column="1"/>
+                <Button Text="9" Command="{Binding AddOperation}" CommandParameter="9" Grid.Row="1" Grid.Column="2"/>
+                <Button Text="*" Command="{Binding AddOperation}" CommandParameter=" * " Style="{StaticResource RedBTN}" Grid.Row="1" Grid.Column="3"/>
+
+
+                <Button Text="4" Command="{Binding AddOperation}" CommandParameter="4" Grid.Row="2" Grid.Column="0"/>
+                <Button Text="5" Command="{Binding AddOperation}" CommandParameter="5" Grid.Row="2" Grid.Column="1"/>
+                <Button Text="6" Command="{Binding AddOperation}" CommandParameter="6" Grid.Row="2" Grid.Column="2"/>
+                <Button Text="-" Command="{Binding AddOperation}" CommandParameter=" - " Style="{StaticResource RedBTN}" Grid.Row="2" Grid.Column="3"/>
+
+
+                <Button Text="1" Command="{Binding AddOperation}" CommandParameter="1" Grid.Row="3" Grid.Column="0"/>
+                <Button Text="2" Command="{Binding AddOperation}" CommandParameter="2" Grid.Row="3" Grid.Column="1"/>
+                <Button Text="3" Command="{Binding AddOperation}" CommandParameter="3" Grid.Row="3" Grid.Column="2"/>
+                <Button Text="+" Command="{Binding AddOperation}" CommandParameter=" + " Style="{StaticResource RedBTN}" Grid.Row="3" Grid.Column="3"/>
+
+                <Button Text="0" Command="{Binding AddOperation}" CommandParameter="0" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0"/>
+                <Button Text="." Command="{Binding AddOperation}" CommandParameter="." Grid.Row="4" Grid.Column="2"/>
+                <Button Text="=" Command="{Binding CalculateResultOperation}" Style="{StaticResource RedBTN}" Grid.Row="4" Grid.Column="3"/>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentPage>
