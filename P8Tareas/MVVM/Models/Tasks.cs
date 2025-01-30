@@ -1,16 +1,12 @@
-﻿namespace P8Tareas.MVVM.Models
+﻿using PropertyChanged;
+
+namespace P8Tareas.MVVM.Models
 {
+    [AddINotifyPropertyChangedInterface]
     public class Tasks
     {
-        public string NameTask { get; set; }
-        public bool IsCompleted { get; set; }
-
-        public Tasks(string nameTask, bool isCompleted)
-        {
-            NameTask = nameTask;
-            IsCompleted = isCompleted;
-        }
-
-        public Tasks() { }
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public bool EstaCompletada { get; set; }
     }
 }

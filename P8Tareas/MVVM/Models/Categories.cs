@@ -1,17 +1,14 @@
-﻿using PropertyChanged;
+﻿using System.Collections.ObjectModel;
 
 namespace P8Tareas.MVVM.Models
 {
-    [AddINotifyPropertyChangedInterface]
-    internal class Categories
+    public class Categories
     {
-        public string CategoryName { get; set; }
-        public Tasks Tasks { get; set; }
+        public int Id { get; set; }
+        public string Nombre { get; set; }
 
-        public Categories()
-        {
-
-        }
+        // Lista de tareas dentro de la categoría
+        public ObservableCollection<Tasks> Tareas { get; set; } = new ObservableCollection<Tasks>();
 
 
     }
