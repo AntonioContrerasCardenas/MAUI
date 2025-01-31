@@ -1,4 +1,6 @@
-﻿namespace P8Tareas
+﻿using P8Tareas.MVVM.Views;
+
+namespace P8Tareas
 {
     public partial class App : Application
     {
@@ -6,7 +8,7 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new MainPageView());
         }
     }
 }

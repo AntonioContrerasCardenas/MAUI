@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="P8Tareas.MVVM.Views.MainPageView"
+             Title="MainPageView">
+    <Grid RowDefinitions="*,3*,5*">
+        <Grid Grid.Row="0">
+            <Label Text="Mis tarreas" BackgroundColor="#80177a"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Label Text="Mis Tareas"/>
+            <Label Text="CATEGORIAS" />
+
+            <CollectionView ItemsSource="{Binding Categorias}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="5" Orientation="Horizontal"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="10" Margin="5" BackgroundColor="LightGray" CornerRadius="10">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Tareas.Count, StringFormat='{0} Tasks'}"/>
+                                <Label Text="{Binding Nombre}" FontSize="20" FontAttributes="Bold"/>
+                                <Label Text="{Binding PorcentajeCompletadas, StringFormat='Completado: {0:F1}%'}"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <VerticalStackLayout>
+                <Label Text="Tareas pendientes"/>
+                <CollectionView ItemsSource="{Binding Categorias}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <HorizontalStackLayout Spacing="10">
+
+                                <Label Text="{Binding Nombre}" VerticalOptions="Center"/>
+                            </HorizontalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>
