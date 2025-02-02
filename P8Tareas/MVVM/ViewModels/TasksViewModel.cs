@@ -8,6 +8,7 @@ namespace P8Tareas.MVVM.ViewModels
     public class TasksViewModel
     {
         public ObservableCollection<Categories> Categorias { get; set; }
+        public ObservableCollection<Tasks> AllTareas { get; set; }
 
         public TasksViewModel()
         {
@@ -44,6 +45,10 @@ namespace P8Tareas.MVVM.ViewModels
                     }
                 },
             };
+
+            AllTareas = new ObservableCollection<Tasks>(
+               Categorias.SelectMany(c => c.Tareas).ToList()
+                );
 
         }
     }

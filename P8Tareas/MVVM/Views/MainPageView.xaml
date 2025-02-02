@@ -2,17 +2,17 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="P8Tareas.MVVM.Views.MainPageView"
-             Title="MainPageView">
+             Title="Mis Tareas">
     <Grid RowDefinitions="*,3*,5*">
         <Grid Grid.Row="0">
             <Label Text="Mis tarreas" BackgroundColor="#80177a"/>
         </Grid>
 
-        <Grid Grid.Row="1">
-            <Label Text="Mis Tareas"/>
-            <Label Text="CATEGORIAS" />
+        <Grid Grid.Row="1" RowDefinitions="*, *,3*">
+            <Label Grid.Row="0" Text="Mis Tareas"/>
+            <Label Grid.Row="1" Text="CATEGORIAS" />
 
-            <CollectionView ItemsSource="{Binding Categorias}">
+            <CollectionView Grid.Row="2" ItemsSource="{Binding Categorias}">
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout ItemSpacing="5" Orientation="Horizontal"/>
                 </CollectionView.ItemsLayout>
@@ -20,9 +20,17 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame Padding="10" Margin="5" BackgroundColor="LightGray" CornerRadius="10">
+
+                            <!--<RoundRectangle>
+                                <RoundRectangle.Shadow>
+                                    <Shadow Brush="AliceBlue" Opacity="0.7" Radius="17" Offset="10,15"/>
+                                </RoundRectangle.Shadow>
+                            </RoundRectangle>-->
+                            
                             <VerticalStackLayout>
                                 <Label Text="{Binding Tareas.Count, StringFormat='{0} Tasks'}"/>
                                 <Label Text="{Binding Nombre}" FontSize="20" FontAttributes="Bold"/>
+                                <ProgressBar Progress="{Binding PorcentajeCompletadas}" />
                                 <Label Text="{Binding PorcentajeCompletadas, StringFormat='Completado: {0:F1}%'}"/>
                             </VerticalStackLayout>
                         </Frame>
@@ -31,21 +39,32 @@
             </CollectionView>
         </Grid>
 
-        <Grid Grid.Row="2">
-            <VerticalStackLayout>
-                <Label Text="Tareas pendientes"/>
-                <CollectionView ItemsSource="{Binding Categorias}">
+        <Grid Grid.Row="2" RowDefinitions="2*,8*">
+           
+                <Label Grid.Row="0" Text="Tareas pendientes"/>
+            <CollectionView Grid.Row="1" ItemsSource="{Binding AllTareas}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <HorizontalStackLayout Spacing="10">
-
-                                <Label Text="{Binding Nombre}" VerticalOptions="Center"/>
+                            <Frame BorderColor="Transparent">
+                                <HorizontalStackLayout Spacing="10">
+                                    <CheckBox CheckedChanged="checkBoxCompletTaks_CheckedChanged" x:Name="checkBoxCompletTaks" IsChecked="{Binding EstaCompletada}" VerticalOptions="Center"/>
+                                <Label Text="{Binding Nombre}" VerticalOptions="Center">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label"
+                                             Binding="{Binding EstaCompletada}"
+                                             Value="True">
+                                            <Setter Property="TextDecorations" Value="Strikethrough"/>
+                                            <Setter Property="TextColor" Value="Gray"/>
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
                             </HorizontalStackLayout>
+                            </Frame>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
 
-            </VerticalStackLayout>
+            <Button Grid.Row="2" Clicked="Button_Clicked" HeightRequest="30" VerticalOptions="End" HorizontalOptions="End" WidthRequest="30" CornerRadius="20" Text="+"/>
         </Grid>
     </Grid>
 </ContentPage>
