@@ -1,5 +1,5 @@
-﻿using System.Collections.ObjectModel;
-using PropertyChanged;
+﻿using PropertyChanged;
+using System.Collections.ObjectModel;
 
 namespace P8Tareas.MVVM.Models
 {
@@ -14,8 +14,10 @@ namespace P8Tareas.MVVM.Models
 
         public bool IsSelected { get; set; }
 
-        public double PorcentajeCompletadas =>
-        Tareas.Count == 0 ? 0 : (double)Tareas.Count(t => t.EstaCompletada);
+        //public double PorcentajeCompletadas =>
+        //Tareas.Count == 0 ? 0 : (double)Tareas.Count(t => t.EstaCompletada);
 
+        public double PorcentajeCompletadas =>
+    Tareas.Count == 0 ? 0 : (double)Tareas.Count(t => t.EstaCompletada) / Tareas.Count;
     }
 }

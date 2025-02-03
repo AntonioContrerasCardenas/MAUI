@@ -1,10 +1,9 @@
 ﻿using P8Tareas.MVVM.Models;
-using PropertyChanged;
 using System.Collections.ObjectModel;
 
 namespace P8Tareas.MVVM.ViewModels
 {
-    [AddINotifyPropertyChangedInterface]
+    //[AddINotifyPropertyChangedInterface]
     public class TasksViewModel
     {
         public ObservableCollection<Categories> Categorias { get; set; }
@@ -50,6 +49,14 @@ namespace P8Tareas.MVVM.ViewModels
                Categorias.SelectMany(c => c.Tareas).ToList()
                 );
 
+        }
+
+        public void UpdateAllTareas()
+        {
+            AllTareas.Clear();
+            AllTareas = new ObservableCollection<Tasks>(
+               Categorias.SelectMany(c => c.Tareas).ToList()
+                );
         }
     }
 }

@@ -20,18 +20,11 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame Padding="10" Margin="5" BackgroundColor="LightGray" CornerRadius="10">
-
-                            <!--<RoundRectangle>
-                                <RoundRectangle.Shadow>
-                                    <Shadow Brush="AliceBlue" Opacity="0.7" Radius="17" Offset="10,15"/>
-                                </RoundRectangle.Shadow>
-                            </RoundRectangle>-->
-                            
                             <VerticalStackLayout>
-                                <Label Text="{Binding Tareas.Count, StringFormat='{0} Tasks'}"/>
-                                <Label Text="{Binding Nombre}" FontSize="20" FontAttributes="Bold"/>
+                                <Label TextColor="Black" Text="{Binding Tareas.Count, StringFormat='{0} Tasks'}"/>
+                                <Label TextColor="Black" Text="{Binding Nombre}" FontSize="20" FontAttributes="Bold"/>
                                 <ProgressBar Progress="{Binding PorcentajeCompletadas}" />
-                                <Label Text="{Binding PorcentajeCompletadas, StringFormat='Completado: {0:F1}%'}"/>
+                                <Label TextColor="Black" Text="{Binding PorcentajeCompletadas, StringFormat='Completado: {0:F1}%'}"/>
                             </VerticalStackLayout>
                         </Frame>
                     </DataTemplate>
@@ -40,14 +33,14 @@
         </Grid>
 
         <Grid Grid.Row="2" RowDefinitions="2*,8*">
-           
-                <Label Grid.Row="0" Text="Tareas pendientes"/>
+
+            <Label Grid.Row="0" Text="Tareas pendientes"/>
             <CollectionView Grid.Row="1" ItemsSource="{Binding AllTareas}">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Frame BorderColor="Transparent">
-                                <HorizontalStackLayout Spacing="10">
-                                    <CheckBox CheckedChanged="checkBoxCompletTaks_CheckedChanged" x:Name="checkBoxCompletTaks" IsChecked="{Binding EstaCompletada}" VerticalOptions="Center"/>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Transparent">
+                            <HorizontalStackLayout Spacing="10">
+                                <CheckBox CheckedChanged="checkBoxCompletTaks_CheckedChanged" x:Name="checkBoxCompletTaks" IsChecked="{Binding EstaCompletada}" VerticalOptions="Center"/>
                                 <Label Text="{Binding Nombre}" VerticalOptions="Center">
                                     <Label.Triggers>
                                         <DataTrigger TargetType="Label"
@@ -59,10 +52,10 @@
                                     </Label.Triggers>
                                 </Label>
                             </HorizontalStackLayout>
-                            </Frame>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
             <Button Grid.Row="2" Clicked="Button_Clicked" HeightRequest="30" VerticalOptions="End" HorizontalOptions="End" WidthRequest="30" CornerRadius="20" Text="+"/>
         </Grid>

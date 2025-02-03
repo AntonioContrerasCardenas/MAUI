@@ -1,4 +1,6 @@
+using P8Tareas.MVVM.Models;
 using P8Tareas.MVVM.ViewModels;
+using System.Collections.ObjectModel;
 
 namespace P8Tareas.MVVM.Views;
 
@@ -11,10 +13,19 @@ public partial class MainPageView : ContentPage
         InitializeComponent();
         BindingContext = viewModel;
     }
-
     private void checkBoxCompletTaks_CheckedChanged(object sender, CheckedChangedEventArgs e)
     {
-        //viewModel.UpdateData();
+
+        if (sender is CheckBox checkBox && checkBox.BindingContext is Tasks tarea)
+        {
+            tarea.EstaCompletada = checkBox.IsChecked;
+
+            var categoria = viewModel.Categorias.FirstOrDefault(c => c.Tareas.Contains(tarea));
+            if (categoria != null)
+            {
+                categoria.Tareas = new ObservableCollection<Tasks>(categoria.Tareas);
+            }
+        }
     }
 
     private void Button_Clicked(object sender, EventArgs e)
