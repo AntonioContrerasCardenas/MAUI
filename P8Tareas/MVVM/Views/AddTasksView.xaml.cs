@@ -16,13 +16,23 @@ public partial class AddTasks : ContentPage
 
         var categorySelected = viewNodel.Categories.Where(c => c.IsSelected == true).FirstOrDefault();
 
+        var tasksValidate = viewNodel.Task;
+
         //TODO: Terminar el agregado de las categorias
-        if (categorySelected != null)
+        if (categorySelected != null && tasksValidate != null)
         {
+            var tasksValidateReplace = viewNodel.Task.Replace(" ", "");
+
+            if (!(tasksValidateReplace.Length > 0))
+            {
+                await DisplayAlert("Error", "Seleccione una categoria y escribe un nombre de la tarea", "Ok");
+                return;
+            }
+
             var newTask = new Tasks
             {
                 Id = viewNodel.Tasks.Count + 1,
-                Nombre = viewNodel.Task,
+                Nombre = viewNodel.Task.Trim(),
                 EstaCompletada = false
             };
             viewNodel.Tasks.Add(newTask);

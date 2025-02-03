@@ -2,15 +2,15 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="P8Tareas.MVVM.Views.MainPageView"
-             Title="Mis Tareas">
-    <Grid RowDefinitions="*,3*,5*">
-        <Grid Grid.Row="0">
+             Title="Mis Tareas Title">
+    <Grid Padding="20" BackgroundColor="#F2F2F2" RowDefinitions="*,2*">
+        <!--<Grid Grid.Row="0">
             <Label Text="Mis tarreas" BackgroundColor="#80177a"/>
-        </Grid>
+        </Grid>-->
 
-        <Grid Grid.Row="1" RowDefinitions="*, *,3*">
-            <Label Grid.Row="0" Text="Mis Tareas"/>
-            <Label Grid.Row="1" Text="CATEGORIAS" />
+        <Grid VerticalOptions="Center" Grid.Row="0" RowDefinitions="*, *,3*">
+            <Label FontSize="Medium" TextColor="Black" Grid.Row="0" Text="Mis Tareas"/>
+            <Label StyleClass="Subtitle" Grid.Row="1" Text="CATEGORIAS" />
 
             <CollectionView Grid.Row="2" ItemsSource="{Binding Categorias}">
                 <CollectionView.ItemsLayout>
@@ -19,12 +19,12 @@
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame Padding="10" Margin="5" BackgroundColor="LightGray" CornerRadius="10">
+                        <Frame HasShadow="True" Padding="20" Margin="5" BackgroundColor="White" CornerRadius="10">
                             <VerticalStackLayout>
                                 <Label TextColor="Black" Text="{Binding Tareas.Count, StringFormat='{0} Tasks'}"/>
                                 <Label TextColor="Black" Text="{Binding Nombre}" FontSize="20" FontAttributes="Bold"/>
-                                <ProgressBar Progress="{Binding PorcentajeCompletadas}" />
-                                <Label TextColor="Black" Text="{Binding PorcentajeCompletadas, StringFormat='Completado: {0:F1}%'}"/>
+                                <ProgressBar Progress="{Binding PorcentajeCompletadas}" ProgressColor="GreenYellow" />
+                                <!--<Label TextColor="Black" Text="{Binding PorcentajeCompletadas, StringFormat='Completado: {0:F1}%'}"/>-->
                             </VerticalStackLayout>
                         </Frame>
                     </DataTemplate>
@@ -32,20 +32,26 @@
             </CollectionView>
         </Grid>
 
-        <Grid Grid.Row="2" RowDefinitions="2*,8*">
+        <Grid VerticalOptions="Center" Grid.Row="1" RowDefinitions="Auto, *">
 
-            <Label Grid.Row="0" Text="Tareas pendientes"/>
+            <!-- Título -->
+            <Label StyleClass="Subtitle" Grid.Row="0" Text="Tareas pendientes" Margin="10,5" />
+
+            <!-- Lista de tareas -->
             <CollectionView Grid.Row="1" ItemsSource="{Binding AllTareas}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame BorderColor="Transparent">
-                            <HorizontalStackLayout Spacing="10">
-                                <CheckBox CheckedChanged="checkBoxCompletTaks_CheckedChanged" x:Name="checkBoxCompletTaks" IsChecked="{Binding EstaCompletada}" VerticalOptions="Center"/>
-                                <Label Text="{Binding Nombre}" VerticalOptions="Center">
+                        <Frame BorderColor="LightGray" BackgroundColor="White" HorizontalOptions="Start" Padding="10" CornerRadius="10"
+                       Margin="5" HasShadow="True">
+                            <HorizontalStackLayout HorizontalOptions="Start" Spacing="10">
+                                <CheckBox HorizontalOptions="Start" CheckedChanged="checkBoxCompletTaks_CheckedChanged"
+                                  x:Name="checkBoxCompletTaks"
+                                  IsChecked="{Binding EstaCompletada}"
+                                  VerticalOptions="Center"/>
+
+                                <Label HorizontalOptions="Start" TextColor="Black" Text="{Binding Nombre}" VerticalOptions="Center">
                                     <Label.Triggers>
-                                        <DataTrigger TargetType="Label"
-                                             Binding="{Binding EstaCompletada}"
-                                             Value="True">
+                                        <DataTrigger TargetType="Label" Binding="{Binding EstaCompletada}" Value="True">
                                             <Setter Property="TextDecorations" Value="Strikethrough"/>
                                             <Setter Property="TextColor" Value="Gray"/>
                                         </DataTrigger>
@@ -57,7 +63,16 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Button Grid.Row="2" Clicked="Button_Clicked" HeightRequest="30" VerticalOptions="End" HorizontalOptions="End" WidthRequest="30" CornerRadius="20" Text="+"/>
+            <!-- Botón flotante para agregar tarea -->
+            <Button Grid.Row="2" Clicked="Button_Clicked"
+            HeightRequest="50" WidthRequest="50"
+            CornerRadius="25" Text="+" 
+            FontSize="Large"
+            BackgroundColor="Purple"
+            TextColor="White"
+            VerticalOptions="End" HorizontalOptions="End"
+            Margin="10"/>
         </Grid>
+
     </Grid>
 </ContentPage>

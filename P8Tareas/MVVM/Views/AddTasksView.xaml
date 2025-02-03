@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="P8Tareas.MVVM.Views.AddTasks"
              Title="Agregar nueva tarea">
-    <Grid RowDefinitions="2*, 7*, *">
-        <Entry Grid.Row="0" Placeholder="Introduce Nueva Tarea" Text="{Binding Task}"/>
+    <Grid BackgroundColor="#F2F2F2" RowDefinitions="2*, 7*, *">
+        <Entry Grid.Row="0" HorizontalOptions="CenterAndExpand" FontSize="Large" TextColor="Black" Placeholder="Introduce Nueva Tarea" Text="{Binding Task}"/>
         <CollectionView Grid.Row="1" Margin="15" ItemsSource="{Binding Categories}">
             <CollectionView.ItemsLayout>
                 <GridItemsLayout HorizontalItemSpacing="5" Orientation="Vertical" Span="2" VerticalItemSpacing="5"/>
@@ -12,16 +12,16 @@
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame>
-                        <RadioButton Content="{Binding Nombre}" GroupName="Category" IsChecked="{Binding IsSelected}" />
+                    <Frame BackgroundColor="White">
+                        <RadioButton Content="{Binding Nombre}" GroupName="Category" TextColor="Black" IsChecked="{Binding IsSelected}" />
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
 
         <HorizontalStackLayout Grid.Row="2" Margin="10" HorizontalOptions="CenterAndExpand" Spacing="16" VerticalOptions="Center">
-            <Button CornerRadius="15" Clicked="Button_Clicked" Text="Agregar tarea"/>
-            <Button CornerRadius="15" Text="Agregar categoria"/>
+            <Button CornerRadius="15" TextColor="White" BackgroundColor="Purple" Clicked="Button_Clicked" Text="Agregar tarea"/>
+            <Button CornerRadius="15" TextColor="White" BackgroundColor="Purple" Text="Agregar categoria"/>
         </HorizontalStackLayout>
     </Grid>
 </ContentPage>

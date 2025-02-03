@@ -8,7 +8,11 @@ namespace P8Tareas
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPageView());
+            MainPage = new NavigationPage(new MainPageView())
+            {
+                BarBackgroundColor = Colors.Purple,
+                BarTextColor = Colors.White
+            };
         }
     }
 }
