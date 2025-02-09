@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="P9Tareas.MVVM.Views.TiempoView"
+             xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+             Title="TiempoView">
+    <Grid Margin="15" RowDefinitions="*,*,5*,1*,3*">
+        <Grid Grid.Row="0">
+            <!--<Border>-->
+            <SearchBar x:Name="searchBar" SearchCommand="{Binding SearchCommand}" SearchCommandParameter="{Binding Source={x:Reference searchBar}, Path=Text}" Placeholder="Busca..." VerticalOptions="Center"/>
+            <!--</Border>-->
+        </Grid>
+        <VerticalStackLayout HorizontalOptions="Center" Grid.Row="1">
+            <Label Text="{Binding Lugar}"/>
+            <Label Text="{Binding Date, StringFormat='0:MMMM dd, yyyy'}"/>
+        </VerticalStackLayout>
+        <skia:SKLottieView Grid.Row="2"  RepeatCount="-1" Source="storm.json"/>
+        <Grid Grid.Row="3" ColumnDefinitions="*,*,*">
+            <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center" Spacing="10">
+                <Label Text="Temp"/>
+                <Label Text="{Binding TiempoModel.daily}"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" Spacing="10">
+                <Label Text="Wind"/>
+                <Label Text="3.3km/h"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center" Spacing="10">
+                <Label Text="Weather"/>
+                <Label Text="Clear Sky"/>
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>
