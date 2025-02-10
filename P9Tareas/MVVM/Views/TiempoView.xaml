@@ -11,12 +11,10 @@
     </ContentPage.Resources>
     <Grid Margin="15" RowDefinitions="*,*,5*,*">
         <Grid Grid.Row="0">
-            <Border>
-            <SearchBar x:Name="searchBar" SearchCommand="{Binding SearchCommand}" SearchCommandParameter="{Binding Source={x:Reference searchBar}, Path=Text}" Placeholder="Busca..." VerticalOptions="Center"/>
-            </Border>
+            <SearchBar TextColor="Black" BackgroundColor="White" x:Name="searchBar" SearchCommand="{Binding SearchCommand}" SearchCommandParameter="{Binding Source={x:Reference searchBar}, Path=Text}" Placeholder="Busca..." VerticalOptions="Center"/>
         </Grid>
         <VerticalStackLayout HorizontalOptions="Center" Grid.Row="1">
-            <Label Text="{Binding Lugar}"/>
+            <Label  Style="{StaticResource Title}" Text="{Binding Lugar}"/>
             <Label Text="{Binding Date, StringFormat='{0:dd/MMMM/yyyy}'}"/>
         </VerticalStackLayout>
         <skia:SKLottieView Grid.Row="2"  RepeatCount="-1" Source="{Binding TiempoModel.current_weather.weathercode, Converter={StaticResource CodeToLottieConverter}}"/>

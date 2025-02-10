@@ -16,7 +16,7 @@ namespace P9Tareas.MVVM.ViewModels
         public TiempoModel TiempoModel { get; set; }
         private HttpClient client;
         private JsonSerializerOptions _serializerOptions;
-        public string Lugar { get; set; }
+        public string Lugar { get; set; } 
         public DateTime Date { get; set; } = DateTime.Now;
 
         public TiempoViewModel()
