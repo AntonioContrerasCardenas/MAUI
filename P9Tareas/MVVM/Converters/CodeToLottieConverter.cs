@@ -12,7 +12,7 @@ namespace MauiWeather.Converters
      {
           public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
           {
-               var code = (float)value;
+               var code = (int)value;
                var lottienImageSource = new SKFileLottieImageSource();
 
                switch (code)

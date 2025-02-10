@@ -15,7 +15,12 @@ namespace P9Tareas
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+                }).ConfigureEssentials(essentials =>
+                {
+                    essentials.UseMapServiceToken("pk.eyJ1IjoiYW50b25pbzc1NjQ1IiwiYSI6ImNtNXNqaGV6MDBoaHoya3F1dTIwZmVjZHUifQ.VKQ6UbOXCQIflEUm08bHng");
+                })
+                ;
+        
 
 #if DEBUG
     		builder.Logging.AddDebug();

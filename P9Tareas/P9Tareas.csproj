@@ -72,4 +72,16 @@
 	  </MauiXaml>
 	</ItemGroup>
 
+	<ItemGroup Condition="'$(TargetFramework)' == 'net9.0-android'">
+	  <PackageReference Include="Mapbox.Maui">
+	    <Version>10.11.1.1</Version>
+	  </PackageReference>
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net9.0-ios'">
+	  <PackageReference Include="Mapbox.Maui">
+	    <Version>10.11.1.1</Version>
+	  </PackageReference>
+	</ItemGroup>
+
 </Project>
