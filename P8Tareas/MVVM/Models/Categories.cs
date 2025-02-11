@@ -17,6 +17,9 @@ namespace P8Tareas.MVVM.Models
         //public double PorcentajeCompletadas =>
         //Tareas.Count == 0 ? 0 : (double)Tareas.Count(t => t.EstaCompletada);
 
+        public int CountTasks => 
+            Tareas.Count;
+
         public double PorcentajeCompletadas =>
     Tareas.Count == 0 ? 0 : (double)Tareas.Count(t => t.EstaCompletada) / Tareas.Count;
     }

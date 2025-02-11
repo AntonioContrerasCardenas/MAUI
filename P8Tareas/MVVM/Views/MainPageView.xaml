@@ -21,6 +21,8 @@
                     <DataTemplate>
                         <Frame HasShadow="True" Padding="20" Margin="5" BackgroundColor="White" CornerRadius="10">
                             <VerticalStackLayout>
+
+                                <Label TextColor="Black" Text="{Binding CountTasks, StringFormat='{0} Tasks'}"/>
                                 <Label TextColor="Black" Text="{Binding Tareas.Count, StringFormat='{0} Tasks'}"/>
                                 <Label TextColor="Black" Text="{Binding Nombre}" FontSize="20" FontAttributes="Bold"/>
                                 <ProgressBar Progress="{Binding PorcentajeCompletadas}" ProgressColor="GreenYellow" />

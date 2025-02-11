@@ -5,9 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using P8Tareas.MVVM.Models;
+using PropertyChanged;
 
 namespace P8Tareas.MVVM.ViewModels
 {
+    [AddINotifyPropertyChangedInterface]
     public class AddTasksViewModel
     {
 

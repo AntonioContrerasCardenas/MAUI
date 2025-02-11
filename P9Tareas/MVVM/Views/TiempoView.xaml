@@ -13,12 +13,12 @@
         <Grid Grid.Row="0">
             <SearchBar TextColor="Black" BackgroundColor="White" x:Name="searchBar" SearchCommand="{Binding SearchCommand}" SearchCommandParameter="{Binding Source={x:Reference searchBar}, Path=Text}" Placeholder="Busca..." VerticalOptions="Center"/>
         </Grid>
-        <VerticalStackLayout HorizontalOptions="Center" Grid.Row="1">
+        <VerticalStackLayout IsVisible="{Binding IsVisible}" HorizontalOptions="Center" Grid.Row="1">
             <Label  Style="{StaticResource Title}" Text="{Binding Lugar}"/>
             <Label Text="{Binding Date, StringFormat='{0:dd/MMMM/yyyy}'}"/>
         </VerticalStackLayout>
         <skia:SKLottieView Grid.Row="2"  RepeatCount="-1" Source="{Binding TiempoModel.current_weather.weathercode, Converter={StaticResource CodeToLottieConverter}}"/>
-        <Grid Grid.Row="3" ColumnDefinitions="*,*,*">
+        <Grid IsVisible="{Binding IsVisible}" Grid.Row="3" ColumnDefinitions="*,*,*">
             <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center" Spacing="10">
                 <Label Text="Temp"/>
                 <Label Text="{Binding TiempoModel.current_weather.temperature, StringFormat='{0}°C'}"/>

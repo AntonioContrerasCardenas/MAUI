@@ -18,6 +18,7 @@ namespace P9Tareas.MVVM.ViewModels
         private JsonSerializerOptions _serializerOptions;
         public string Lugar { get; set; } 
         public DateTime Date { get; set; } = DateTime.Now;
+        public bool IsVisible { get; set; } = false;
 
         public TiempoViewModel()
         {
@@ -49,6 +50,7 @@ namespace P9Tareas.MVVM.ViewModels
                 Lugar = searchTxt.ToString();
                 var location = await GetCoordinatesAsync2(searchTxt.ToString());
                 await GetWeather(location);
+                IsVisible = true;
             });
 
         private async Task<Location> GetCoordinatesAsync2(string address)
