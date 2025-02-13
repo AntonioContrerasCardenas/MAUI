@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage BackgroundColor="White"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MascotaApp.MVVM.ViewModel.HomePage"
+             xmlns:converters="clr-namespace:MascotaApp.MVVM.Converters"
+             Title="Adopta">
+
+    <ContentPage.Resources>
+        <converters:ConvertAdopter x:Key="CodeToString" />
+    </ContentPage.Resources>
+    
+    <Grid RowDefinitions="*,9*">
+        <Grid Grid.Row="0">
+            <Label Text="Tu MASCOTA" />
+        </Grid>
+
+        <Grid Grid.Row="1" >
+            <CollectionView ItemsSource="{Binding Animals}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout HorizontalItemSpacing="5" Orientation="Vertical" Span="2" VerticalItemSpacing="5"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BackgroundColor="LightGray" Padding="10" Margin="5">
+                            <Grid BackgroundColor="White" RowDefinitions="Auto,Auto">
+                                <Image Source="{Binding ImgAnimal}"
+                                       Aspect="AspectFill"
+                                       HeightRequest="150"
+                                       WidthRequest="150"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center" />
+                                <Label Text="{Binding IsAdopted, Converter={StaticResource CodeToString}}"
+                                       Grid.Row="1"
+                                       FontSize="14"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                        />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </Grid>
+</ContentPage>
