@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MascotaApp.MVVM.Model;
+using PropertyChanged;
 
 namespace MascotaApp.Selectors
 {
+    [AddINotifyPropertyChangedInterface]
     public class AnimalDataTemplateSelector : DataTemplateSelector
     {
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)

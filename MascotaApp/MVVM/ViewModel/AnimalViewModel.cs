@@ -7,16 +7,15 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using MascotaApp.MVVM.Model;
 using MascotaApp.MVVM.View;
+using PropertyChanged;
 
 namespace MascotaApp.MVVM.ViewModel
 {
+    [AddINotifyPropertyChangedInterface]
     public class AnimalViewModel
     {
-
         public ObservableCollection<Animal> Animals { get; set; }
         public AnimalViewModel() {
-
-
             Animals = new ObservableCollection<Animal>()
             {
                 new Animal
@@ -46,5 +45,13 @@ namespace MascotaApp.MVVM.ViewModel
             };
         }
 
+        public void UpdateAnimal(Animal updatedAnimal)
+        {
+            var animal = Animals.FirstOrDefault(a => a.Id == updatedAnimal.Id);
+            if (animal != null)
+            {
+                animal.IsAdopted = updatedAnimal.IsAdopted;
+            }
+        }
     }
 }

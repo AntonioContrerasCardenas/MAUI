@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PropertyChanged;
 
 namespace MascotaApp.MVVM.Model
 {
+    [AddINotifyPropertyChangedInterface]
     public class Animal
     {
         public int Id {  get; set; }

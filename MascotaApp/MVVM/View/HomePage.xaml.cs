@@ -1,9 +1,6 @@
 namespace MascotaApp.MVVM.ViewModel;
 
-using System.Runtime.CompilerServices;
-using System.Windows.Input;
 using MascotaApp.MVVM.Model;
-using Microsoft.Maui.Controls.Platform;
 using View;
 public partial class HomePage : ContentPage
 {
@@ -11,10 +8,6 @@ public partial class HomePage : ContentPage
 	{
 		InitializeComponent();
 		BindingContext = new AnimalViewModel();
-	}
-    public async void MuestraAdoptame()
-	{
-		await Navigation.PushAsync(new AdoptaView());
 	}
 
     private async void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -29,6 +22,8 @@ public partial class HomePage : ContentPage
 			return;
 		}
 
-		await Navigation.PushAsync(new AdoptaView());
+        //await Navigation.PushAsync(new AdoptaView(selectedAnimal, BindingContext as AnimalViewModel));
+        await Navigation.PushAsync(new AdoptaView(selectedAnimal));
+
     }
 }

@@ -3,7 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MascotaApp.MVVM.View.AdoptaView"
             >
-    <Grid RowDefinitions="7*">
-        
-    </Grid>
+    <StackLayout BackgroundColor="White" Padding="20" Spacing="20">
+        <Image Source="{Binding AnimalSelected.ImgAnimal}" HeightRequest="200" />
+        <Label Text="{Binding AnimalSelected.Name}" FontSize="24" TextColor="Black" HorizontalOptions="Center" />
+        <Label Text="{Binding AnimalSelected.Raza}" FontSize="18" TextColor="Black" HorizontalOptions="Center" />
+        <Button Command="{Binding AdoptCommand}" Text="Adoptar"/>
+        <Button Clicked="Button_Clicked" Text="Seguir viendo"/>
+    </StackLayout>
 </ContentPage>
