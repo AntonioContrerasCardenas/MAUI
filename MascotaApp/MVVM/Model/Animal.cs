@@ -8,6 +8,7 @@ namespace MascotaApp.MVVM.Model
 {
     public class Animal
     {
+        public int Id {  get; set; }
         public bool IsAdopted { get; set; }
         public string ImgAnimal { get; set; }
         public string Name { get; set; }

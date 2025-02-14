@@ -14,7 +14,6 @@
         <Border BackgroundColor="LightGray" Padding="10" Margin="5">
             <Grid BackgroundColor="White" RowDefinitions="Auto,Auto">
                 <Image Source="{Binding ImgAnimal}"
-                   Aspect="AspectFill"
                    HeightRequest="150"
                    WidthRequest="150"
                    HorizontalOptions="Center"
@@ -44,9 +43,20 @@
     </DataTemplate>
 
     <DataTemplate x:Key="NodoptadoStyle">
-        <Border BackgroundColor="Beige" Padding="10" Margin="5">
+        <Border BackgroundColor="LightGray" Padding="10" Margin="5">
             <Grid BackgroundColor="White" RowDefinitions="Auto,Auto">
-                <Label Text="{Binding IsAdopted, Converter={StaticResource boolToString}}"
+                <!--<Button Text="{Binding IsAdopted, Converter={StaticResource boolToString}}"   
+                        Command="{Binding ToAdoptViewCommand}"
+                        CommandParameter="{Binding Id}"
+                        BackgroundColor="White"
+                        FontSize="14"
+                     Margin="0,0,20,0" 
+                     Rotation="20"
+                     TextColor="Red"
+                 HorizontalOptions="End"
+                 VerticalOptions="Center"/>-->
+
+                <Label  Text="{Binding IsAdopted, Converter={StaticResource boolToString}}"
                    FontSize="14"
                        Margin="0,0,20,0"
                        Rotation="20"

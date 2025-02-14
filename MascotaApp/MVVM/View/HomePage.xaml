@@ -18,7 +18,7 @@
         </Grid>
 
         <Grid Grid.Row="1" >
-            <CollectionView ItemsSource="{Binding Animals}" ItemTemplate="{StaticResource AnimalDataTemplateSelector}">
+            <CollectionView ItemsSource="{Binding Animals}" ItemTemplate="{StaticResource AnimalDataTemplateSelector}" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout HorizontalItemSpacing="5" Orientation="Vertical" Span="2" VerticalItemSpacing="5"/>
                 </CollectionView.ItemsLayout>
