@@ -53,5 +53,15 @@ namespace MascotaApp.MVVM.ViewModel
                 animal.IsAdopted = updatedAnimal.IsAdopted;
             }
         }
+
+        public void RefresAnimals()
+        {
+            var temp = new ObservableCollection<Animal>(Animals);
+            Animals.Clear();
+            foreach (var animal in temp)
+            {
+                Animals.Add(animal);
+            }
+        }
     }
 }

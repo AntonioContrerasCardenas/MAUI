@@ -12,10 +12,10 @@ public partial class AdoptaView : ContentPage
     //	BindingContext = new AdoptaViewModel(animal, animalViewModel);
     //}
 
-    public AdoptaView(Animal animal)
+    public AdoptaView(Animal animal, AnimalViewModel parentViewModel)
     {
         InitializeComponent();
-        BindingContext = new AdoptaViewModel(animal);
+        BindingContext = new AdoptaViewModel(animal, parentViewModel);
     }
     private async void Button_Clicked(object sender, EventArgs e)
     {

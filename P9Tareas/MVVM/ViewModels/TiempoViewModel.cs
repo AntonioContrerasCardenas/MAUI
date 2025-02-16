@@ -22,7 +22,10 @@ namespace P9Tareas.MVVM.ViewModels
 
         public TiempoViewModel()
         {
-            _serializerOptions = new JsonSerializerOptions();
+            _serializerOptions = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+            };
             client = new HttpClient();  
         }
 
@@ -39,7 +42,7 @@ namespace P9Tareas.MVVM.ViewModels
             {
                 using (var responseStream = await response.Content.ReadAsStreamAsync())
                 {
-                    var data = await JsonSerializer.DeserializeAsync<TiempoModel>(responseStream);
+                    var data = await JsonSerializer.DeserializeAsync<TiempoModel>(responseStream, _serializerOptions);
                     TiempoModel = data;
                 }
             }

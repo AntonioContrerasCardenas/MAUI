@@ -16,14 +16,17 @@ namespace MascotaApp.MVVM.View
         public Animal AnimalSelected { get; set; }
         public ICommand AdoptCommand { get; set; }
         private AnimalViewModel AnimalViewModel { get; }
+        private AnimalViewModel ParentViewModel { get; }
 
-        public AdoptaViewModel(Animal animalSelected)
+        public AdoptaViewModel(Animal animalSelected, AnimalViewModel parentViewModel)
         {
             AnimalSelected = animalSelected;
+            ParentViewModel = parentViewModel;
 
             AdoptCommand = new Command(() =>
             {
                 AnimalSelected.IsAdopted = true;
+                ParentViewModel.RefresAnimals();
                 Application.Current.MainPage.DisplayAlert("AdoptaApp", "Este animal ya esta adoptado", "Cancelar");
             });
         }
