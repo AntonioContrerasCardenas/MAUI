@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converter="clr-namespace:MascotasApp2.MVVM.Converters">
+
+    <converter:AdoptConverter x:Key="ConvertValue"/>
+
+
+
+    <DataTemplate x:Key="AdoptedView">
+        <Border BackgroundColor="Blue">
+            <Grid RowDefinitions="*,*">
+                <Image Grid.Row="0" HeightRequest="150" WidthRequest="150" Source="{Binding Image}"/>
+                <Label Text="{Binding IsAdopted, Converter={StaticResource ConvertValue}}"/>
+                <Label Grid.Row="1" Text="{Binding Name}"/>
+            </Grid>
+        </Border>
+    </DataTemplate>
+
+    <DataTemplate x:Key="NoAdoptedView">
+        <Border BackgroundColor="Green">
+            <Grid  RowDefinitions="*,*">
+                <Image Grid.Row="0" HeightRequest="150" WidthRequest="150" Source="{Binding Image}"/>
+                <Label Text="{Binding IsAdopted, Converter={StaticResource ConvertValue}}"/>
+                <Label Grid.Row="1" Text="{Binding Name}"/>
+            </Grid>
+        </Border>
+    </DataTemplate>
+
+</ResourceDictionary>

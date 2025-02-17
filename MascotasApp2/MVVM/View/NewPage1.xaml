@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MascotasApp2.MVVM.View.NewPage1"
+             xmlns:DataTemplate="clr-namespace:MascotasApp2.Selectors"
+             Title="Animales">
+    <ContentPage.Resources>
+        <DataTemplate:DataTemplateAdopt x:Key="AnimalDataTemplateSelector" />
+    </ContentPage.Resources>
+    
+    <Grid RowDefinitions="*,9*">
+        <Grid Grid.Row="0">
+            <Label Text="Tu MASCOTA" />
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <CollectionView ItemsSource="{Binding Animals}" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged" ItemTemplate="{StaticResource AnimalDataTemplateSelector}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout VerticalItemSpacing="5" HorizontalItemSpacing="5" Span="2" Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+
+            </CollectionView>
+        </Grid>
+    </Grid>
+</ContentPage>

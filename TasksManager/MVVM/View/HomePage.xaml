@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TasksManager.MVVM.View.HomePage"
+             xmlns:DataTemplate="clr-namespace:TasksManager.Selectors"
+             Title="HomePage">
+    <ContentPage.Resources>
+        <DataTemplate:DataSelector x:Key="DataTe"/>
+    </ContentPage.Resources>
+    
+    <ScrollView>
+        <VerticalStackLayout>
+            <CollectionView ItemsSource="{Binding Tareas}" ItemTemplate="{StaticResource DataTe}">
+                
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
